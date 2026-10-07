@@ -1,11 +1,11 @@
 # Réglages du portfolio. Modifiez les quatre lignes ci-dessous, enregistrez,
 # et le site se met à jour tout seul après la publication.
-title: "Prénom Nom"
-description: "Étudiant en BTS SIO, 1re année. Mes réalisations professionnelles, au fil de la formation."
-email: "prenom.nom@ecole.fr"
+title: "Ilian SEGHIRI"
+description: "Étudiant en BTS SIO, 1re année. Voici tout les Projet que j'ai pu réalisé au cours de mon cursus."
+email: "seghiri.ilian@yahoo.com"
 linkedin: ""
 
-lang: fr
+lang: fr/en
 
 # Chaque fichier déposé dans le dossier _projets devient une page du site.
 collections:
