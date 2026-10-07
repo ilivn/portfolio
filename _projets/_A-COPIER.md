@@ -1,23 +1,23 @@
 ---
-title: "Intitulé du projet"
+title: "Création de mon Portfolio"
 date: 2026-10-07
 cadre: "Atelier de professionnalisation"
-resume: "Une phrase : ce que vous avez fait, et pour qui."
-competences: [c2]
+resume: "J'ai créer un portfolio à des fins professionel."
+competences: [c1]
 ---
 
 ## Contexte
 
-Qui a demandé quoi, dans quelle organisation, et pourquoi c'était nécessaire.
+Mon professeur nous a demander de nous créer un portfolio
 
 ## Conditions et moyens
 
-Le matériel, les logiciels, seul ou en équipe.
+GitHub et Claude.
 
 ## Description de l'activité
 
-1. Première étape, avec la commande ou le réglage réellement employé.
-2. Deuxième étape.
+1. Première étape, j'ai commencer par le mettre en ligne sur GitHub et j'ai créer une mise en page plutot simple .
+2. Deuxième étape. j'embellis la mise en page de mon portfolio 
 
 ## Productions et preuves
 
@@ -25,4 +25,4 @@ Le matériel, les logiciels, seul ou en équipe.
 
 ## Ce que j'en retiens
 
-Une difficulté rencontrée et la façon dont vous l'avez réglée.
+j'ai eu du mal a suivre l'atelier.
