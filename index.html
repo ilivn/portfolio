@@ -1,34 +1,1000 @@
 ---
 layout: default
+title: Portfolio
 ---
-<h1>{{ site.title }}</h1>
-<p class="sous-titre">{{ site.description }}</p>
 
-<h2>Profil</h2>
-<p>Acutellement je sais : Identifier et décrire l'architecture d'un réseau local; Configurer l'adressage IP et tester la connectivité réseau; Déployer et configurer une machine virtuelle; Assurer un support utilisateur de premier niveau. Je suis à la recherche d'une alternance ayant les capacité de dévelloper mes compétence .</p>
+<style>
 
-{% assign projets = site.projets | sort: "date" | reverse %}
+:root {
+    --bg: #0b1120;
+    --bg2: #111827;
+    --card: #172033;
+    --card-hover: #1d2940;
+    --primary: #38bdf8;
+    --primary-dark: #0284c7;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --border: #263449;
+    --white: #ffffff;
+}
 
-<h2 id="projets">Projets ({{ projets.size }})</h2>
-{% for p in projets %}
-<article class="carte">
-  <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-  <p>{{ p.resume }}</p>
-  <p class="meta">{{ p.date | date: "%m/%Y" }} · {{ p.cadre }}</p>
-</article>
-{% endfor %}
+* {
+    box-sizing: border-box;
+}
 
-<h2 id="competences">Compétences du bloc 1</h2>
-<p>Chaque croix renvoie au projet qui la prouve. Le tableau se remplit tout seul à chaque projet ajouté.</p>
-<div class="defile">
-<table>
-  <thead>
-    <tr><th scope="col">Compétence</th>{% for p in projets %}<th scope="col"><a href="{{ p.url | relative_url }}">P{{ forloop.rindex }}</a></th>{% endfor %}</tr>
-  </thead>
-  <tbody>
-  {% for c in site.data.competences %}
-    <tr><th scope="row">{{ c.libelle }}</th>{% for p in projets %}<td class="case">{% if p.competences contains c.code %}<a href="{{ p.url | relative_url }}" aria-label="{{ c.libelle }} : {{ p.title }}">X</a>{% endif %}</td>{% endfor %}</tr>
-  {% endfor %}
-  </tbody>
-</table>
-</div>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(56,189,248,0.10),
+            transparent 30%
+        ),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.portfolio-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    width: 100%;
+
+    background: rgba(11,17,32,0.90);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.portfolio-nav-inner {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 18px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio-logo {
+    color: var(--primary);
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.portfolio-menu {
+    display: flex;
+    gap: 30px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio-menu a {
+    color: var(--text);
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.portfolio-menu a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1200px;
+    min-height: 600px;
+
+    margin: auto;
+    padding: 100px 30px;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-small {
+    color: var(--primary);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(45px, 8vw, 80px);
+    line-height: 1.05;
+
+    color: var(--white);
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 700px;
+
+    margin-top: 25px;
+
+    color: var(--muted);
+
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: #07111f;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: rgba(56,189,248,0.1);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.portfolio-section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 30px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+
+    font-size: 38px;
+
+    color: var(--white);
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.section-description {
+    max-width: 750px;
+
+    color: var(--muted);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.profile-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.profile-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    transition: 0.2s;
+}
+
+.profile-card:hover {
+    background: var(--card-hover);
+
+    border-color: var(--primary);
+}
+
+.profile-card h3 {
+    color: var(--primary);
+
+    margin-top: 0;
+
+    font-size: 22px;
+}
+
+.profile-card p {
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   PROJETS
+========================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    transition: 0.25s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    background: var(--card-hover);
+
+    border-color: var(--primary);
+}
+
+.project-number {
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    margin: 0 0 12px;
+
+    font-size: 22px;
+}
+
+.project-card h3 a {
+    color: var(--white);
+
+    text-decoration: none;
+}
+
+.project-card h3 a:hover {
+    color: var(--primary);
+}
+
+.project-card p {
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+.project-meta {
+    margin-top: 20px;
+
+    color: var(--primary) !important;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   COMPETENCES
+========================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+}
+
+.skill-card h3 {
+    color: var(--primary);
+
+    margin-top: 0;
+}
+
+.skill-card p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   TABLEAU
+========================= */
+
+.defile {
+    overflow-x: auto;
+
+    background: var(--card);
+
+    border-radius: 15px;
+
+    padding: 10px;
+}
+
+.defile table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    color: var(--text);
+}
+
+.defile th,
+.defile td {
+    border: 1px solid var(--border);
+
+    padding: 12px;
+
+    text-align: left;
+}
+
+.defile th {
+    background: #1e293b;
+
+    color: var(--primary);
+}
+
+.defile td.case {
+    text-align: center;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56,189,248,0.10),
+            rgba(2,132,199,0.05)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 60px 30px;
+}
+
+.contact-box h2 {
+    font-size: 40px;
+
+    margin-top: 0;
+}
+
+.contact-box p {
+    color: var(--muted);
+
+    max-width: 650px;
+
+    margin: 15px auto;
+}
+
+.contact-email {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--primary);
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   SEPARATION
+========================= */
+
+.section-line {
+    max-width: 1140px;
+
+    height: 1px;
+
+    margin: auto;
+
+    background: var(--border);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 750px) {
+
+    .portfolio-nav-inner {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .portfolio-menu {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 500px;
+
+        padding: 70px 25px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .profile-box {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-section {
+        padding: 65px 20px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="portfolio-nav">
+
+    <div class="portfolio-nav-inner">
+
+        <a
+            href="{{ '/' | relative_url }}"
+            class="portfolio-logo"
+        >
+            IS.
+        </a>
+
+        <ul class="portfolio-menu">
+
+            <li>
+                <a href="#accueil">
+                    Accueil
+                </a>
+            </li>
+
+            <li>
+                <a href="#profil">
+                    À propos
+                </a>
+            </li>
+
+            <li>
+                <a href="#projets">
+                    Projets
+                </a>
+            </li>
+
+            <li>
+                <a href="#competences">
+                    Compétences
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     ACCUEIL
+========================= -->
+
+<section
+    class="hero"
+    id="accueil"
+>
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            BTS SIO — OPTION SISR
+        </p>
+
+        <h1>
+            Bonjour, je suis
+            <span>Ilian SEGHIRI</span>
+        </h1>
+
+        <p class="hero-description">
+            {{ site.description }}
+        </p>
+
+        <p class="hero-description">
+            Étudiant en informatique, je m'intéresse
+            particulièrement aux réseaux, aux systèmes,
+            au support informatique et à la cybersécurité.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projets"
+                class="btn"
+            >
+                Voir mes projets
+            </a>
+
+            <a
+                href="#contact"
+                class="btn btn-secondary"
+            >
+                Me contacter
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-line"></div>
+
+
+<!-- =========================
+     PROFIL
+========================= -->
+
+<section
+    class="portfolio-section"
+    id="profil"
+>
+
+    <h2 class="section-title">
+        À propos <span>de moi</span>
+    </h2>
+
+    <p class="section-description">
+        Découvrez mon parcours, mes objectifs et
+        les compétences que je développe durant
+        mon BTS SIO.
+    </p>
+
+
+    <div class="profile-box">
+
+        <div class="profile-card">
+
+            <h3>
+                Mon profil
+            </h3>
+
+            <p>
+                Actuellement étudiant en BTS SIO,
+                option SISR, je développe mes compétences
+                dans l'administration des systèmes,
+                les réseaux et le support informatique.
+            </p>
+
+            <p>
+                Je recherche une alternance qui me
+                permettra de développer mes compétences
+                et d'acquérir davantage d'expérience
+                professionnelle.
+            </p>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <h3>
+                Mes compétences
+            </h3>
+
+            <p>
+                Identifier et décrire l'architecture
+                d'un réseau local.
+            </p>
+
+            <p>
+                Configurer l'adressage IP et tester
+                la connectivité réseau.
+            </p>
+
+            <p>
+                Déployer et configurer une machine virtuelle.
+            </p>
+
+            <p>
+                Assurer un support utilisateur
+                de premier niveau.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-line"></div>
+
+
+<!-- =========================
+     PROJETS
+========================= -->
+
+<section
+    class="portfolio-section"
+    id="projets"
+>
+
+    <h2 class="section-title">
+        Mes <span>projets</span>
+    </h2>
+
+    <p class="section-description">
+        Voici les différents projets réalisés
+        durant mon parcours.
+    </p>
+
+
+    {% assign projets = site.projets | sort: "date" | reverse %}
+
+
+    <div class="projects-grid">
+
+        {% for p in projets %}
+
+        <article class="project-card">
+
+            <div class="project-number">
+                PROJET {{ forloop.index }}
+            </div>
+
+            <h3>
+
+                <a
+                    href="{{ p.url | relative_url }}"
+                >
+                    {{ p.title }}
+                </a>
+
+            </h3>
+
+            <p>
+                {{ p.resume }}
+            </p>
+
+            <p class="project-meta">
+                {{ p.date | date: "%m/%Y" }}
+                ·
+                {{ p.cadre }}
+            </p>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<div class="section-line"></div>
+
+
+<!-- =========================
+     COMPETENCES
+========================= -->
+
+<section
+    class="portfolio-section"
+    id="competences"
+>
+
+    <h2 class="section-title">
+        Mes <span>compétences</span>
+    </h2>
+
+    <p class="section-description">
+        Les compétences présentées ci-dessous
+        sont automatiquement liées aux projets
+        qui permettent de les démontrer.
+    </p>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+
+            <h3>
+                🌐 Réseaux
+            </h3>
+
+            <p>
+                Architecture réseau, adressage IP,
+                configuration et tests de connectivité.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>
+                💻 Systèmes
+            </h3>
+
+            <p>
+                Installation, configuration et
+                administration de systèmes informatiques.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>
+                🛡️ Cybersécurité
+            </h3>
+
+            <p>
+                Sensibilisation à la sécurité,
+                protection des équipements et
+                des données.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>
+                🔧 Support
+            </h3>
+
+            <p>
+                Diagnostic des incidents,
+                assistance utilisateur et résolution
+                des problèmes informatiques.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <h3 style="margin-top:60px;">
+        Tableau des compétences
+    </h3>
+
+    <div class="defile">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col">
+                        Compétence
+                    </th>
+
+                    {% for p in projets %}
+
+                    <th scope="col">
+
+                        <a
+                            href="{{ p.url | relative_url }}"
+                        >
+                            P{{ forloop.rindex }}
+                        </a>
+
+                    </th>
+
+                    {% endfor %}
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for c in site.data.competences %}
+
+                <tr>
+
+                    <th scope="row">
+                        {{ c.libelle }}
+                    </th>
+
+
+                    {% for p in projets %}
+
+                    <td class="case">
+
+                        {% if p.competences contains c.code %}
+
+                        <a
+                            href="{{ p.url | relative_url }}"
+                            aria-label="{{ c.libelle }} : {{ p.title }}"
+                        >
+                            ✓
+                        </a>
+
+                        {% endif %}
+
+                    </td>
+
+                    {% endfor %}
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<div class="section-line"></div>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="portfolio-section"
+    id="contact"
+>
+
+    <div class="contact-box">
+
+        <h2>
+            Me <span>contacter</span>
+        </h2>
+
+        <p>
+            Vous souhaitez échanger avec moi
+            concernant une alternance, un stage
+            ou un projet informatique ?
+        </p>
+
+        {% if site.email != "" %}
+
+        <a
+            class="contact-email"
+            href="mailto:{{ site.email }}"
+        >
+            {{ site.email }}
+        </a>
+
+        {% else %}
+
+        <a
+            class="contact-email"
+            href="mailto:seghiri.ilian@yahoo.com"
+        >
+            seghiri.ilian@yahoo.com
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</section>
