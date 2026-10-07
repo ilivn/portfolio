@@ -5,7 +5,7 @@ description: "Étudiant en BTS SIO, 1re année. Voici tout les Projet que j'ai p
 email: "seghiri.ilian@yahoo.com"
 linkedin: ""
 
-lang: fr/en
+lang: fr en
 
 # Chaque fichier déposé dans le dossier _projets devient une page du site.
 collections:
