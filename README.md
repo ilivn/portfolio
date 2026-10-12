@@ -1,18 +1,32 @@
-# Modèle de portfolio BTS SIO
+# Portfolio BTS SIO — Ilian SEGHIRI
 
-Site statique gratuit, construit avec Jekyll (logiciel libre) et publié par GitHub Pages. Aucune installation n'est nécessaire : tout se fait depuis le navigateur.
+Portfolio de BTS SIO, option SISR (Ensitech). Les projets sont classés par bloc de compétences du référentiel.
 
-## Démarrer
+En ligne : https://ilivn.github.io/portfolio/
 
-1. Bouton vert « Use this template », puis « Create a new repository ».
-2. Dans `_config.yml`, remplacez le nom, la phrase de présentation et l'adresse e-mail.
-3. Settings, Pages, Source « Deploy from a branch », branche `main`, dossier `/ (root)`, Save.
+## Contenu du dépôt
+
+| Fichier ou dossier | Rôle |
+|---|---|
+| `index.html` | Le portfolio (page d'accueil du site) |
+| `crm/index.html` | Carnet, le CRM pour entreprise, accessible à l'adresse `/portfolio/crm/` |
+| `preuves/` | Captures et documents qui servent de preuves aux projets |
+| `.nojekyll` | Demande à GitHub Pages de servir les fichiers tels quels |
+
+## Ajouter une preuve à un projet
+
+1. Déposer le fichier (image, PDF…) dans le dossier `preuves/`, avec un nom simple sans espace ni accent, par exemple `audit-reseau-1.pdf`.
+2. Dans `index.html`, trouver la ligne du projet dans la liste `blocs`.
+3. Ajouter la preuve en 8e position, sous la forme `[["Nom affiché", "preuves/audit-reseau-1.pdf"]]`.
+   Si le projet n'a pas de lien en ligne ou de lien GitHub, mettre `null` à leur place.
+
+Exemple :
+
+```js
+["Concevoir une solution d'infrastructure réseau",O,"Conception d'un réseau d'entreprise","Plan d'adressage, VLAN…","Packet Tracer, GNS3",null,null,[["Schéma du réseau","preuves/reseau-1.png"]]]
+```
 
 ## Ajouter un projet
 
-1. Ouvrez le dossier `_projets`, puis le fichier `_A-COPIER.md`, et copiez tout son contenu.
-2. Revenez dans `_projets`, « Add file », « Create new file », nommez le fichier par exemple `wireshark.md`, collez, remplissez.
-3. Les captures se déposent dans `images` (« Add file », « Upload files »).
-4. « Commit changes ». La page d'accueil et le tableau des compétences se mettent à jour seuls.
-
-Code sous licence MIT, contenu sous licence CC BY 4.0.
+Copier une ligne existante dans le bon bloc et modifier ses colonnes :
+compétence, type (`S` site, `A` application, `O` autre projet), titre, description, outils, lien en ligne, lien du code, preuves.

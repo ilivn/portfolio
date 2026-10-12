@@ -1,1000 +1,170 @@
----
-layout: default
-title: Portfolio
----
-
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio BTS SIO option SISR d'Ilian SEGHIRI : projets classés par bloc de compétences.">
+<title>Portfolio BTS SIO — Ilian SEGHIRI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <style>
-
-:root {
-    --bg: #0b1120;
-    --bg2: #111827;
-    --card: #172033;
-    --card-hover: #1d2940;
-    --primary: #38bdf8;
-    --primary-dark: #0284c7;
-    --text: #f8fafc;
-    --muted: #94a3b8;
-    --border: #263449;
-    --white: #ffffff;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background:
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(56,189,248,0.10),
-            transparent 30%
-        ),
-        var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.portfolio-nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-
-    width: 100%;
-
-    background: rgba(11,17,32,0.90);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.portfolio-nav-inner {
-    max-width: 1200px;
-    margin: auto;
-
-    padding: 18px 25px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.portfolio-logo {
-    color: var(--primary);
-    text-decoration: none;
-
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.portfolio-menu {
-    display: flex;
-    gap: 30px;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.portfolio-menu a {
-    color: var(--text);
-    text-decoration: none;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    transition: 0.2s;
-}
-
-.portfolio-menu a:hover {
-    color: var(--primary);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    max-width: 1200px;
-    min-height: 600px;
-
-    margin: auto;
-    padding: 100px 30px;
-
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    max-width: 850px;
-}
-
-.hero-small {
-    color: var(--primary);
-
-    font-size: 18px;
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    margin: 0;
-
-    font-size: clamp(45px, 8vw, 80px);
-    line-height: 1.05;
-
-    color: var(--white);
-}
-
-.hero h1 span {
-    color: var(--primary);
-}
-
-.hero-description {
-    max-width: 700px;
-
-    margin-top: 25px;
-
-    color: var(--muted);
-
-    font-size: 20px;
-    line-height: 1.7;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-
-    margin-top: 30px;
-
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-
-    padding: 12px 22px;
-
-    border-radius: 10px;
-
-    background: var(--primary);
-    color: #07111f;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    transition: 0.2s;
-}
-
-.btn:hover {
-    background: #7dd3fc;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--primary);
-
-    border: 1px solid var(--primary);
-}
-
-.btn-secondary:hover {
-    background: rgba(56,189,248,0.1);
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.portfolio-section {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 90px 30px;
-}
-
-.section-title {
-    margin-bottom: 15px;
-
-    font-size: 38px;
-
-    color: var(--white);
-}
-
-.section-title span {
-    color: var(--primary);
-}
-
-.section-description {
-    max-width: 750px;
-
-    color: var(--muted);
-
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   PROFIL
-========================= */
-
-.profile-box {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 25px;
-}
-
-.profile-card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 30px;
-
-    transition: 0.2s;
-}
-
-.profile-card:hover {
-    background: var(--card-hover);
-
-    border-color: var(--primary);
-}
-
-.profile-card h3 {
-    color: var(--primary);
-
-    margin-top: 0;
-
-    font-size: 22px;
-}
-
-.profile-card p {
-    color: var(--muted);
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   PROJETS
-========================= */
-
-.projects-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 20px;
-}
-
-.project-card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 25px;
-
-    transition: 0.25s;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-
-    background: var(--card-hover);
-
-    border-color: var(--primary);
-}
-
-.project-number {
-    color: var(--primary);
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    margin-bottom: 12px;
-}
-
-.project-card h3 {
-    margin: 0 0 12px;
-
-    font-size: 22px;
-}
-
-.project-card h3 a {
-    color: var(--white);
-
-    text-decoration: none;
-}
-
-.project-card h3 a:hover {
-    color: var(--primary);
-}
-
-.project-card p {
-    color: var(--muted);
-
-    line-height: 1.6;
-}
-
-.project-meta {
-    margin-top: 20px;
-
-    color: var(--primary) !important;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   COMPETENCES
-========================= */
-
-.skills-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 20px;
-}
-
-.skill-card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 25px;
-}
-
-.skill-card h3 {
-    color: var(--primary);
-
-    margin-top: 0;
-}
-
-.skill-card p {
-    color: var(--muted);
-}
-
-
-/* =========================
-   TABLEAU
-========================= */
-
-.defile {
-    overflow-x: auto;
-
-    background: var(--card);
-
-    border-radius: 15px;
-
-    padding: 10px;
-}
-
-.defile table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    color: var(--text);
-}
-
-.defile th,
-.defile td {
-    border: 1px solid var(--border);
-
-    padding: 12px;
-
-    text-align: left;
-}
-
-.defile th {
-    background: #1e293b;
-
-    color: var(--primary);
-}
-
-.defile td.case {
-    text-align: center;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-box {
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(56,189,248,0.10),
-            rgba(2,132,199,0.05)
-        );
-
-    border: 1px solid var(--border);
-
-    border-radius: 25px;
-
-    padding: 60px 30px;
-}
-
-.contact-box h2 {
-    font-size: 40px;
-
-    margin-top: 0;
-}
-
-.contact-box p {
-    color: var(--muted);
-
-    max-width: 650px;
-
-    margin: 15px auto;
-}
-
-.contact-email {
-    display: inline-block;
-
-    margin-top: 20px;
-
-    color: var(--primary);
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    text-decoration: none;
-}
-
-
-/* =========================
-   SEPARATION
-========================= */
-
-.section-line {
-    max-width: 1140px;
-
-    height: 1px;
-
-    margin: auto;
-
-    background: var(--border);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 750px) {
-
-    .portfolio-nav-inner {
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
-    .portfolio-menu {
-        gap: 15px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-    }
-
-    .hero {
-        min-height: 500px;
-
-        padding: 70px 25px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .hero-description {
-        font-size: 17px;
-    }
-
-    .profile-box {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-section {
-        padding: 65px 20px;
-    }
-
-    .section-title {
-        font-size: 30px;
-    }
-
-}
-
+:root{--bg:#f3f0ff;--panel:#fff;--ink:#271f4d;--muted:#6a6590;--line:#e4defa;--violet:#6c4bff;
+--sky-bg:#e1f0ff;--sky:#0a5fb8;--vio-bg:#ebe6ff;--vio:#4a2fd0;--sun-bg:#fff2cc;--sun:#7a5200;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.5 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:110px}
+h1,h2,h3,h4{font-family:Fredoka,"Trebuchet MS",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.2}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px}
+.app{max-width:720px;margin:0 auto;--acc:#078273}
+.app[data-b="1"]{--acc:#6c4bff}.app[data-b="2"]{--acc:#d92f4b}
+.hero{background:var(--acc);color:#fff;padding:26px 20px 70px;border-radius:0 0 32px 32px;position:relative;overflow:hidden;transition:background .3s}
+.hero a{color:#fff}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14)}
+.hero:before{width:170px;height:170px;right:-40px;top:-50px}.hero:after{width:90px;height:90px;right:70px;bottom:-30px;background:rgba(255,200,40,.5)}
+.who{display:flex;align-items:center;gap:14px;position:relative}
+.av{width:58px;height:58px;border-radius:50%;background:#ffbf1f;color:#271f4d;display:grid;place-items:center;font:600 22px Fredoka,sans-serif;flex:none}
+.hero h1{font-size:24px}.hero p{margin:2px 0 0;opacity:.95;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-44px 16px 0;position:relative}
+.stat{background:var(--panel);border-radius:18px;padding:12px 8px;text-align:center;box-shadow:0 6px 18px rgba(60,40,140,.12)}
+.stat b{display:block;font:600 24px Fredoka,sans-serif;color:var(--acc)}.stat span{font-size:14px;color:var(--muted)}
+.body{padding:22px 16px 0}
+.bh h2{font-size:22px}.bh p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:none}
+.chip{border:2px solid var(--line);background:var(--panel);border-radius:99px;padding:6px 14px;white-space:nowrap;font-weight:700;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.seg{display:flex;background:var(--vio-bg);border-radius:14px;padding:4px;margin:12px 0 4px}
+.seg button{flex:1;border:0;background:transparent;border-radius:11px;padding:8px 6px;font-weight:700;font-size:15px;color:var(--vio)}
+.seg button[aria-pressed="true"]{background:var(--panel);box-shadow:0 2px 8px rgba(60,40,140,.18)}
+.gname{margin:14px 2px 2px;color:var(--muted);font-size:15px}
+details{background:var(--panel);border-radius:18px;margin-top:12px;box-shadow:0 4px 14px rgba(60,40,140,.08);border:2px solid transparent}
+details[open]{border-color:var(--acc)}
+summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;border-radius:16px}
+summary::-webkit-details-marker{display:none}
+.ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none}
+.t-site{background:var(--sky-bg)}.t-app{background:var(--vio-bg)}.t-autre{background:var(--sun-bg)}
+summary h3{font-size:16.5px;flex:1;min-width:0}
+.chev{transition:transform .2s;color:var(--muted);font-size:18px}
+details[open] .chev{transform:rotate(90deg)}
+.det{padding:0 16px 16px 16px}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:14px;font-weight:700}
+.tag.t-site{color:var(--sky)}.tag.t-app{color:var(--vio)}.tag.t-autre{color:var(--sun)}
+.det h4{font-size:17px;margin:8px 0 4px}.det p{margin:0 0 8px;font-size:16px}
+.tools{display:flex;flex-wrap:wrap;gap:6px}.tools span{background:var(--bg);border-radius:8px;padding:2px 9px;font-size:14px}
+.proof{margin-top:10px;font-size:14px;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+.files{margin-top:12px;padding-top:12px;border-top:2px dashed var(--line)}
+.ftitle{font:600 15px Fredoka,sans-serif;margin-bottom:6px}
+.frow{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg);border-radius:10px;margin-bottom:6px;font-size:15px}
+.flink{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;color:var(--vio)}
+.fsize{color:var(--muted);font-size:13px}
+.frm{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;padding:4px}
+.fadd{border:2px dashed var(--vio);background:transparent;color:var(--vio);border-radius:14px;padding:9px 14px;font-weight:700;width:100%}
+.fadd:disabled{opacity:.6}
+.fmsg{margin:6px 0 0;font-size:14px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.open{display:inline-block;padding:9px 16px;border-radius:14px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
+.open.alt{background:transparent;color:var(--acc);border:2px solid var(--acc);padding:7px 14px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;padding:8px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line)}
+.tabs div{display:flex;gap:6px;width:100%;max-width:720px}
+.tab{flex:1;border:0;background:transparent;border-radius:16px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;font-size:13.5px;font-weight:700;color:var(--muted)}
+.tab i{font-style:normal;font-size:22px}
+.tab[aria-selected="true"]{background:var(--vio-bg);color:var(--vio)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav class="portfolio-nav">
-
-    <div class="portfolio-nav-inner">
-
-        <a
-            href="{{ '/' | relative_url }}"
-            class="portfolio-logo"
-        >
-            IS.
-        </a>
-
-        <ul class="portfolio-menu">
-
-            <li>
-                <a href="#accueil">
-                    Accueil
-                </a>
-            </li>
-
-            <li>
-                <a href="#profil">
-                    À propos
-                </a>
-            </li>
-
-            <li>
-                <a href="#projets">
-                    Projets
-                </a>
-            </li>
-
-            <li>
-                <a href="#competences">
-                    Compétences
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-</nav>
-
-
-<!-- =========================
-     ACCUEIL
-========================= -->
-
-<section
-    class="hero"
-    id="accueil"
->
-
-    <div class="hero-content">
-
-        <p class="hero-small">
-            BTS SIO — OPTION SISR
-        </p>
-
-        <h1>
-            Bonjour, je suis
-            <span>Ilian SEGHIRI</span>
-        </h1>
-
-        <p class="hero-description">
-            {{ site.description }}
-        </p>
-
-        <p class="hero-description">
-            Étudiant en informatique, je m'intéresse
-            particulièrement aux réseaux, aux systèmes,
-            au support informatique et à la cybersécurité.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projets"
-                class="btn"
-            >
-                Voir mes projets
-            </a>
-
-            <a
-                href="#contact"
-                class="btn btn-secondary"
-            >
-                Me contacter
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<div class="section-line"></div>
-
-
-<!-- =========================
-     PROFIL
-========================= -->
-
-<section
-    class="portfolio-section"
-    id="profil"
->
-
-    <h2 class="section-title">
-        À propos <span>de moi</span>
-    </h2>
-
-    <p class="section-description">
-        Découvrez mon parcours, mes objectifs et
-        les compétences que je développe durant
-        mon BTS SIO.
-    </p>
-
-
-    <div class="profile-box">
-
-        <div class="profile-card">
-
-            <h3>
-                Mon profil
-            </h3>
-
-            <p>
-                Actuellement étudiant en BTS SIO,
-                option SISR, je développe mes compétences
-                dans l'administration des systèmes,
-                les réseaux et le support informatique.
-            </p>
-
-            <p>
-                Je recherche une alternance qui me
-                permettra de développer mes compétences
-                et d'acquérir davantage d'expérience
-                professionnelle.
-            </p>
-
-        </div>
-
-
-        <div class="profile-card">
-
-            <h3>
-                Mes compétences
-            </h3>
-
-            <p>
-                Identifier et décrire l'architecture
-                d'un réseau local.
-            </p>
-
-            <p>
-                Configurer l'adressage IP et tester
-                la connectivité réseau.
-            </p>
-
-            <p>
-                Déployer et configurer une machine virtuelle.
-            </p>
-
-            <p>
-                Assurer un support utilisateur
-                de premier niveau.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<div class="section-line"></div>
-
-
-<!-- =========================
-     PROJETS
-========================= -->
-
-<section
-    class="portfolio-section"
-    id="projets"
->
-
-    <h2 class="section-title">
-        Mes <span>projets</span>
-    </h2>
-
-    <p class="section-description">
-        Voici les différents projets réalisés
-        durant mon parcours.
-    </p>
-
-
-    {% assign projets = site.projets | sort: "date" | reverse %}
-
-
-    <div class="projects-grid">
-
-        {% for p in projets %}
-
-        <article class="project-card">
-
-            <div class="project-number">
-                PROJET {{ forloop.index }}
-            </div>
-
-            <h3>
-
-                <a
-                    href="{{ p.url | relative_url }}"
-                >
-                    {{ p.title }}
-                </a>
-
-            </h3>
-
-            <p>
-                {{ p.resume }}
-            </p>
-
-            <p class="project-meta">
-                {{ p.date | date: "%m/%Y" }}
-                ·
-                {{ p.cadre }}
-            </p>
-
-        </article>
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-
-<div class="section-line"></div>
-
-
-<!-- =========================
-     COMPETENCES
-========================= -->
-
-<section
-    class="portfolio-section"
-    id="competences"
->
-
-    <h2 class="section-title">
-        Mes <span>compétences</span>
-    </h2>
-
-    <p class="section-description">
-        Les compétences présentées ci-dessous
-        sont automatiquement liées aux projets
-        qui permettent de les démontrer.
-    </p>
-
-
-    <div class="skills-grid">
-
-        <div class="skill-card">
-
-            <h3>
-                🌐 Réseaux
-            </h3>
-
-            <p>
-                Architecture réseau, adressage IP,
-                configuration et tests de connectivité.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card">
-
-            <h3>
-                💻 Systèmes
-            </h3>
-
-            <p>
-                Installation, configuration et
-                administration de systèmes informatiques.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card">
-
-            <h3>
-                🛡️ Cybersécurité
-            </h3>
-
-            <p>
-                Sensibilisation à la sécurité,
-                protection des équipements et
-                des données.
-            </p>
-
-        </div>
-
-
-        <div class="skill-card">
-
-            <h3>
-                🔧 Support
-            </h3>
-
-            <p>
-                Diagnostic des incidents,
-                assistance utilisateur et résolution
-                des problèmes informatiques.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <h3 style="margin-top:60px;">
-        Tableau des compétences
-    </h3>
-
-    <div class="defile">
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th scope="col">
-                        Compétence
-                    </th>
-
-                    {% for p in projets %}
-
-                    <th scope="col">
-
-                        <a
-                            href="{{ p.url | relative_url }}"
-                        >
-                            P{{ forloop.rindex }}
-                        </a>
-
-                    </th>
-
-                    {% endfor %}
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                {% for c in site.data.competences %}
-
-                <tr>
-
-                    <th scope="row">
-                        {{ c.libelle }}
-                    </th>
-
-
-                    {% for p in projets %}
-
-                    <td class="case">
-
-                        {% if p.competences contains c.code %}
-
-                        <a
-                            href="{{ p.url | relative_url }}"
-                            aria-label="{{ c.libelle }} : {{ p.title }}"
-                        >
-                            ✓
-                        </a>
-
-                        {% endif %}
-
-                    </td>
-
-                    {% endfor %}
-
-                </tr>
-
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</section>
-
-
-<div class="section-line"></div>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-    class="portfolio-section"
-    id="contact"
->
-
-    <div class="contact-box">
-
-        <h2>
-            Me <span>contacter</span>
-        </h2>
-
-        <p>
-            Vous souhaitez échanger avec moi
-            concernant une alternance, un stage
-            ou un projet informatique ?
-        </p>
-
-        {% if site.email != "" %}
-
-        <a
-            class="contact-email"
-            href="mailto:{{ site.email }}"
-        >
-            {{ site.email }}
-        </a>
-
-        {% else %}
-
-        <a
-            class="contact-email"
-            href="mailto:seghiri.ilian@yahoo.com"
-        >
-            seghiri.ilian@yahoo.com
-        </a>
-
-        {% endif %}
-
-    </div>
-
-</section>
+</head>
+<body>
+<div class="app" id="app" data-b="0">
+<header class="hero">
+<div class="who"><div class="av">IS</div><div><h1>Ilian SEGHIRI</h1><p>Étudiant en BTS SIO, option SISR</p><p>Ensitech — seghiri.ilian@yahoo.com</p></div></div>
+</header>
+<div class="stats" id="stats"></div>
+<div class="body">
+<div class="bh" id="bh"></div>
+<div class="chips" id="chips" role="group" aria-label="Filtrer par type de projet"></div>
+<main id="main"></main>
+</div>
+</div>
+<nav class="tabs" aria-label="Blocs de compétences"><div id="tabs" role="tablist"></div></nav>
+
+<script>
+var S="Site internet",A="Application",O="Autre projet";
+var ICON={};ICON[S]="🌐";ICON[A]="📱";ICON[O]="🧩";
+var CLS={};CLS[S]="t-site";CLS[A]="t-app";CLS[O]="t-autre";
+// Colonnes d'un projet : [compétence, type, titre, description, outils, lien en ligne, lien du code, preuves]
+// Preuves : liste de [nom affiché, chemin du fichier dans le dossier preuves/]
+var blocs=[
+{tab:"Support",ico:"🎧",titre:"Bloc 1 — Support et mise à disposition de services informatiques",lead:"Compétences communes : gérer le parc, aider les utilisateurs, mettre un service en ligne.",groupes:[{rows:[
+["Gérer le patrimoine informatique",O,"Inventaire du parc avec GLPI","Recensement des postes et des licences, mise en place d'un suivi du matériel.","GLPI, Active Directory"],
+["Répondre aux incidents et aux demandes d'assistance",O,"Traitement de tickets de support","Prise en charge d'incidents, du diagnostic à la clôture, avec documentation de la solution.","GLPI, prise en main à distance"],
+null, // projet retiré : la place est gardée pour que les preuves jointes restent sur le bon projet
+["Travailler en mode projet",O,"Projet en équipe : [titre]","Planning, répartition des tâches, comptes rendus de réunion et bilan.","Trello ou GitLab, Gantt"],
+["Mettre à disposition des utilisateurs un service informatique",O,"Mise en place d'un serveur de fichiers","Création des comptes, des droits d'accès et de la documentation d'utilisation.","Windows Server ou Linux, Samba"],
+["Organiser son développement professionnel",O,"Veille technologique","Sujet suivi : [thème]. Sources, outil d'agrégation, fiches de synthèse datées.","Flux RSS, Feedly, Notion"],
+["Mettre à disposition des utilisateurs un service informatique",A,"Sport local, mon application","Application web pour trouver où faire du sport près de chez soi et avec qui : terrains, salles, piscines, pistes, parcours de course et sessions entre sportifs. Version web publiée en ligne.","Flutter, Supabase, GitHub Pages","https://ilivn.github.io/Sport-Local-1/",null,[["Capture de l'application","preuves/sport-local-1.jpg"]]],
+["Développer la présence en ligne de l'organisation",S,"LootRadar, comparateur de prix de jeux PC","Site qui compare le prix d'un jeu PC dans plus de 30 boutiques officielles (Steam, GOG, Gamesplanet, Fanatical, DLGamer, Green Man Gaming…). Recherche instantanée, fiche détaillée avec le meilleur prix et le plus bas prix historique, bons plans du moment. Données récupérées via une API REST, protection contre les failles XSS, hébergement sur GitHub Pages.","HTML, CSS, JavaScript, API CheapShark, GitHub Pages","https://ilivn.github.io/Site-Internet/","https://github.com/ilivn/Site-Internet",[["Capture du site","preuves/lootradar-1.jpg"]]],
+["Mettre à disposition des utilisateurs un service informatique",A,"Carnet, CRM pour entreprise","Application web de gestion de la relation client livrée vierge, prête à être vendue à une entreprise : paramètres de l'entreprise, fiches contacts, pipeline commercial en kanban (glisser-déposer), relances avec dates d'échéance, tableau de bord (pipeline en cours, chiffre signé, taux de transformation), sauvegarde et restauration des données. Interface responsive, mode clair et sombre, validation des saisies et protection contre les failles XSS.","HTML, CSS, JavaScript, localStorage, JSON","crm/",null,[["Capture du CRM","preuves/carnet-crm-1.png"]]]]}]},
+{tab:"Réseaux",ico:"💻",titre:"Bloc 2 — Administration des systèmes et des réseaux (SISR)",lead:"Concevoir, installer, superviser et dépanner des infrastructures réseau.",groupes:[
+{nom:"SISR",long:"Administration des systèmes et des réseaux",rows:[
+["Concevoir une solution d'infrastructure réseau",O,"Conception d'un réseau d'entreprise","Plan d'adressage, VLAN, routage inter-VLAN, schémas logique et physique.","Packet Tracer, GNS3"],
+["Installer, tester et déployer une solution d'infrastructure réseau",S,"Serveur web hébergé et configuré","Installation, configuration, tests et procédure de déploiement.","Linux, Apache ou Nginx, Docker"],
+["Exploiter, dépanner et superviser une solution d'infrastructure réseau",O,"Supervision d'un parc","Sondes, alertes et tableau de bord pour suivre la disponibilité des services.","Zabbix ou Centreon, SNMP"]]}]},
+{tab:"Cybersécurité",ico:"🛡️",titre:"Bloc 3 — Cybersécurité des services informatiques",lead:"Protéger les données, les équipements et les applications.",groupes:[{rows:[
+["Protéger les données à caractère personnel",O,"Mise en conformité RGPD","Registre des traitements, analyse des données collectées et mesures de protection.","Fiches RGPD, charte informatique"],
+["Préserver l'identité numérique de l'organisation",S,"Sécurisation du site : HTTPS","Certificat, redirection HTTPS et en-têtes de sécurité sur le site déployé.","Let's Encrypt, Nginx ou Apache"],
+["Sécuriser les équipements et les usages des utilisateurs",O,"Pare-feu et politique d'accès","Règles de filtrage, segmentation du réseau, sensibilisation des utilisateurs.","pfSense, ACL"],
+["Garantir la disponibilité, l'intégrité et la confidentialité des services et des données",O,"Sauvegardes et audit de sécurité","Stratégie de sauvegarde, test de restauration, scan de vulnérabilités sur un environnement de test autorisé.","Veeam ou rsync, Nmap, OpenVAS"],
+["Assurer la cybersécurité d'une solution applicative et de son développement",A,"Sécurisation de l'application","Validation des saisies, mots de passe hachés, gestion des sessions, revue de code.","OWASP Top 10, bcrypt"]]}]}
+];
+var st={b:0,f:"Tous",g:0};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
+function btn(label,pressed,fn,cls){var b=el("button",cls||"",label);b.type="button";b.setAttribute("aria-pressed",pressed);b.onclick=fn;return b}
+function all(){var r=[];blocs.forEach(function(b){b.groupes.forEach(function(g){r=r.concat(g.rows.filter(Boolean))})});return r}
+function link(label,href,cls){var l=el("a",cls,label);l.href=href;l.target="_blank";l.rel="noopener";return l}
+function render(){
+var b=blocs[st.b],app=document.getElementById("app");app.setAttribute("data-b",st.b);
+var tabs=document.getElementById("tabs");clear(tabs);
+blocs.forEach(function(x,i){var t=el("button","tab");t.type="button";t.setAttribute("role","tab");t.setAttribute("aria-selected",i===st.b);
+t.appendChild(el("i","",x.ico));t.appendChild(document.createTextNode(x.tab));
+t.onclick=function(){st.b=i;st.g=0;render();window.scrollTo({top:0,behavior:"smooth"})};tabs.appendChild(t)});
+var rows=all(),uniq={};rows.forEach(function(r){uniq[r[0]]=1});
+var stats=document.getElementById("stats");clear(stats);
+[[Object.keys(uniq).length,"compétences"],[rows.length,"projets"],[3,"blocs"]].forEach(function(s){var d=el("div","stat");d.appendChild(el("b","",s[0]));d.appendChild(el("span","",s[1]));stats.appendChild(d)});
+var bh=document.getElementById("bh");clear(bh);bh.appendChild(el("h2","",b.titre));bh.appendChild(el("p","",b.lead));
+var chips=document.getElementById("chips");clear(chips);
+["Tous",S,A,O].forEach(function(f){chips.appendChild(btn((ICON[f]?ICON[f]+" ":"")+f,st.f===f,function(){st.f=f;render()},"chip"))});
+var main=document.getElementById("main");clear(main);
+if(b.groupes.length>1){var seg=el("div","seg");b.groupes.forEach(function(g,i){seg.appendChild(btn(g.nom,st.g===i,function(){st.g=i;render()}))});main.appendChild(seg)}
+var gi=b.groupes.length>1?st.g:0,g=b.groupes[gi];
+if(g.long)main.appendChild(el("p","gname",g.long));
+var n=0;
+g.rows.forEach(function(r,ri){
+if(!r||(st.f!=="Tous"&&r[1]!==st.f))return;
+var d=el("details"),s=el("summary");
+s.appendChild(el("div","ic "+CLS[r[1]],ICON[r[1]]));s.appendChild(el("h3","",r[0]));s.appendChild(el("span","chev","›"));
+d.appendChild(s);
+var c=el("div","det");c.appendChild(el("span","tag "+CLS[r[1]],r[1]));c.appendChild(el("h4","",r[2]));c.appendChild(el("p","",r[3]));
+var t=el("div","tools");r[4].split(", ").forEach(function(o){t.appendChild(el("span","",o))});c.appendChild(t);
+if(r[5]||r[6]){var ls=el("div","links");
+if(r[5])ls.appendChild(link(r[1]===S?"🚀 Ouvrir le site":"🚀 Ouvrir l'application",r[5],"open"));
+if(r[6])ls.appendChild(link("Voir le code sur GitHub",r[6],"open alt"));
+c.appendChild(ls)}
+if(r[7]&&r[7].length)c.appendChild(makeFiles(r[7]));
+d.appendChild(c);if(n===0)d.open=true;n++;main.appendChild(d)});
+if(!n)main.appendChild(el("div","empty","Aucun projet de ce type dans ce bloc."));
+}
+function makeFiles(list){
+var w=el("div","files");w.appendChild(el("div","ftitle","Preuves"));
+list.forEach(function(p){var r=el("div","frow"),a=el("a","flink","📎 "+p[0]);a.href=p[1];a.target="_blank";a.rel="noopener";r.appendChild(a);w.appendChild(r)});
+return w}
+render();
+</script>
+
+</body>
+</html>
